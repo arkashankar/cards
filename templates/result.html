@@ -1,0 +1,55 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			ML App
+		</div>
+		<h2>Bussiness card field identificationnts</h2>
+		
+	</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results</b></p>
+	<div class="results">
+	<p>{{prediction}}
+    <form action="save" method="post" id="form">
+      <input type="submit" value="Submit">
+    
+    <table>
+{% for t in prediction %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+    <td>
+    <select name="cars" form="form">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select></td>
+{% endfor %}
+ </table>
+    
+    
+    
+    
+    <script>
+    
+    document.write(prediction);
+    </script>
+	
+
+	</div>
+
+</body>
+</html>
+
